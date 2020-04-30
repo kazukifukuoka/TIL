@@ -1,19 +1,19 @@
 ### cocoonとは
-- 動的に入力フォームを増減できるようになるgem
+- 動的に入力フォームを増減できるようになるgem  
 
 ### 導入方法（Rails 6の場合、jqueryを導入済み）
 `gem "cocoon"`  
 `yarn add github:nathanvda/cocoon#c24ba53`  
 
-- モデル
-親
+- モデル    
+親  
 `has_many :children, dependent: :destroy`  
 `accepts_nested_attributes_for :children, allow: true`  
 
-子
+子  
 `belongs_to :parent`  
 
-- コントローラー
+- コントローラー    
 ```.ruby
 def new
     @parent = Parent.new
@@ -32,7 +32,7 @@ def parent_params
 end
 ```
 
-- ビュー
+- ビュー  
 
 parent.html.erb
 
@@ -60,9 +60,9 @@ _children_fields.html.erb
 </div>
 ```
 
-- 注意
+- 注意  
  
-  フォームは部分テンプレートで実装する
+フォームは部分テンプレートで実装する
 ファイル名に規約があるらしく、_モデル名_fieldsにする必要がある
 
   
